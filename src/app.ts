@@ -10,9 +10,12 @@ dotenv.config();
 const app: express.Application = express();
 
 app.use(express.json());
+
 app.use(
   cors({
     origin: "https://booking-app-front-end-omega.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
   })
 );
