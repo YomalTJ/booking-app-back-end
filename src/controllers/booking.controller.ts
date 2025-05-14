@@ -13,7 +13,7 @@ export const createBooking = async (
     const userId = req.userId;
 
     const room = await Room.findById(roomId);
-    if (!room || !room.availability) {
+    if (!room) {
       res.status(400).json({ message: "Room not available" });
       return;
     }
