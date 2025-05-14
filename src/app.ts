@@ -11,9 +11,14 @@ const app: express.Application = express();
 
 app.use(express.json());
 
+const allowedOrigins = [
+  "https://booking-app-front-end-omega.vercel.app",
+  "https://booking-app-front-end-gamma.vercel.app",
+];
+
 app.use(
   cors({
-    origin: "https://booking-app-front-end-omega.vercel.app",
+    origin: allowedOrigins,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
